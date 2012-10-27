@@ -1,3 +1,23 @@
+<% first_product = Product.first %>
+<% expensive_product = Product.where('price > 100').first %>
+<% cheap_product = Product.where('price < 99').first %>
+
+<p>
+	Product name: "<%= first_product.name %>" costs $<%=first_product.price %>
+</p>
+<p>
+  The seller for this product is named '<%= first_product.user.name %>'
+</p>
+
+<p>
+	The cheap seller of the product: '<%= expensive_product.name %>' is: '<%= expensive_product.user.name %>' and sells it for: $<%= expensive_product.price%>.
+</p>
+
+<p>
+If you are poor, perhaps you can buy a <%= cheap_product.name %> from <%=cheap_product.user.name %> for only $<%=cheap_product.price %>.
+</p>
+
+
 <h2>Hello world</h2>
 <h2> I AMA View </h2>
 <p>
